@@ -1,0 +1,72 @@
+{
+    "project_name": "Dubai_Prime_Estate",
+    "tech_stack": {
+      "framework": "Next.js (App Router)",
+      "styling": "Tailwind CSS",
+      "animation": "Framer Motion",
+      "3d_elements": "Spline (via @splinetool/react-spline)",
+      "cms_future_integration": "WordPress (Headless via GraphQL)"
+    },
+    "design_system": {
+      "theme": {
+        "mode": "light",
+        "colors": {
+          "primary": "#064E3B", 
+          "secondary": "#D4A373", 
+          "accent": "#F3F4F6", 
+          "text_main": "#111827",
+          "text_muted": "#6B7280",
+          "background": "#FFFFFF",
+          "overlay": "rgba(6, 78, 59, 0.85)"
+        },
+        "typography": {
+          "font_heading": "Playfair Display (Serif - Luxury feel like Sotheby's)",
+          "font_body": "Inter (Sans-serif - Clean feel like JLL)"
+        },
+        "border_radius": "0px (Sharp edges for premium/corporate feel)"
+      }
+    },
+    "layout_structure": {
+      "header": {
+        "type": "Sticky Transparent to Solid",
+        "elements": ["Logo", "MegaMenu (Buy, Rent, Sell, Insights)", "Search Icon", "Contact Button"]
+      },
+      "hero_section": {
+        "type": "Immersive 3D",
+        "background": "Spline 3D Scene (Abstract Dubai Skyline or Floating architectural elements)",
+        "foreground": {
+          "headline": "Elevating Dubai Living",
+          "subheadline": "The intersection of luxury homes and market intelligence.",
+          "search_component": "Tabbed Search Bar (Buy | Rent | Off-Plan)"
+        }
+      },
+      "home_page_sections": [
+        {
+          "id": "featured_properties",
+          "style": "Masonry Grid",
+          "inspiration": "Sotheby's",
+          "content": "High-res cards with price, location, and bed/bath count. Hover effects using Framer Motion."
+        },
+        {
+          "id": "market_pulse",
+          "style": "Data Dashboard Row",
+          "inspiration": "JLL",
+          "content": "3 Key Metrics: 'Average Price/SqFt', 'Market Growth', 'New Projects'."
+        },
+        {
+          "id": "neighborhood_guides",
+          "style": "Carousel",
+          "content": "Cards for: Palm Jumeirah, Downtown Dubai, Dubai Hills."
+        }
+      ],
+      "footer": {
+        "style": "Minimalist Multi-column",
+        "elements": ["Social Links", "Newsletter Signup", "Legal", "Office Map"]
+      }
+    },
+    "animations": {
+      "page_load": "Fade in + Stagger children",
+      "scroll": "Parallax effect on images",
+      "interaction": "Button hover: Scale 1.05 + Shadow"
+    }
+  }
