@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { StaggerContainer, StaggerItem } from '../ui/AnimatedSection';
+import AnimatedSection, { StaggerContainer, StaggerItem } from '../ui/AnimatedSection';
 import SectionHeader from '../ui/SectionHeader';
 import type { Service } from '@/types';
 
@@ -55,12 +55,12 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                     subtitle="Comprehensive real estate solutions tailored to your unique needs."
                 />
 
-                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service) => (
                         <StaggerItem key={service.id}>
                             <Link href={`/services/${service.slug}`}>
                                 <motion.article
-                                    className="group relative h-full bg-accent overflow-hidden shadow-premium"
+                                    className="group relative h-full bg-accent overflow-hidden"
                                     whileHover={{ y: -8 }}
                                     transition={{ duration: 0.3 }}
                                 >
@@ -76,24 +76,24 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="relative p-8 lg:p-10 h-full flex flex-col min-h-[420px] lg:min-h-[450px]">
+                                    <div className="relative p-10 h-full flex flex-col min-h-[400px]">
                                         {/* Icon */}
-                                        <div className="w-14 h-14 lg:w-16 lg:h-16 bg-primary/5 group-hover:bg-white/10 flex items-center justify-center mb-6 lg:mb-8 text-primary group-hover:text-white transition-colors">
+                                        <div className="w-16 h-16 bg-primary/5 group-hover:bg-white/10 flex items-center justify-center mb-8 text-primary group-hover:text-white transition-colors">
                                             {iconComponents[service.icon] || iconComponents['home']}
                                         </div>
 
                                         {/* Title */}
-                                        <h3 className="font-heading text-xl lg:text-2xl text-text-main group-hover:text-white mb-3 lg:mb-4 transition-colors">
+                                        <h3 className="font-heading text-2xl text-text-main group-hover:text-white mb-4 transition-colors">
                                             {service.title}
                                         </h3>
 
                                         {/* Description */}
-                                        <p className="font-body text-text-muted group-hover:text-white/80 mb-6 lg:mb-8 flex-grow transition-colors leading-relaxed text-sm lg:text-base">
+                                        <p className="font-body text-text-muted group-hover:text-white/80 mb-8 flex-grow transition-colors leading-relaxed">
                                             {service.shortDescription}
                                         </p>
 
                                         {/* Features Preview */}
-                                        <ul className="space-y-2.5 lg:space-y-3 mb-6 lg:mb-8">
+                                        <ul className="space-y-3 mb-8">
                                             {service.features.slice(0, 3).map((feature, index) => (
                                                 <li
                                                     key={index}
@@ -108,7 +108,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                                         </ul>
 
                                         {/* Link */}
-                                        <span className="inline-flex items-center gap-2 text-primary group-hover:text-secondary font-body font-semibold transition-colors mt-auto">
+                                        <span className="inline-flex items-center gap-2 text-primary group-hover:text-secondary font-body font-semibold transition-colors">
                                             Learn More
                                             <svg className="w-5 h-5 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

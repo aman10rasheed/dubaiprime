@@ -48,17 +48,17 @@ export default async function ServicesPage() {
     const services = await getServices();
 
     return (
-        <>
+        <div className="pt-24">
             {/* Page Header */}
-            <section className="bg-primary py-12 lg:py-16">
+            <section className="bg-primary py-20">
                 <div className="container-luxury">
                     <AnimatedSection animation="fadeUp">
-                        <span className="inline-flex items-center gap-3 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase mb-4">
+                        <span className="inline-flex items-center gap-2 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase mb-4">
                             <span className="w-8 h-px bg-secondary" />
                             What We Offer
                         </span>
-                        <h1 className="font-heading text-white mb-4 lg:mb-5">Our Services</h1>
-                        <p className="font-body text-white/70 text-lg max-w-2xl leading-relaxed">
+                        <h1 className="font-heading text-white mb-4">Our Services</h1>
+                        <p className="font-body text-white/70 text-lg max-w-2xl">
                             Comprehensive real estate solutions tailored to meet your unique
                             needs, from property acquisition to investment management.
                         </p>
@@ -69,11 +69,11 @@ export default async function ServicesPage() {
             {/* Services Grid */}
             <section className="section-padding bg-white">
                 <div className="container-luxury">
-                    <StaggerContainer className="space-y-16 lg:space-y-24">
+                    <StaggerContainer className="space-y-24">
                         {services.map((service, index) => (
                             <StaggerItem key={service.id}>
                                 <div
-                                    className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                                    className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                                         }`}
                                 >
                                     {/* Image */}
@@ -89,24 +89,24 @@ export default async function ServicesPage() {
 
                                     {/* Content */}
                                     <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                                        <div className="w-16 h-16 lg:w-20 lg:h-20 bg-primary/5 flex items-center justify-center mb-5 lg:mb-6 text-primary">
+                                        <div className="w-20 h-20 bg-primary/5 flex items-center justify-center mb-6 text-primary">
                                             {iconComponents[service.icon] || iconComponents['home']}
                                         </div>
 
-                                        <h2 className="font-heading text-2xl lg:text-3xl text-text-main mb-4">
+                                        <h2 className="font-heading text-3xl text-text-main mb-4">
                                             {service.title}
                                         </h2>
 
-                                        <p className="font-body text-text-muted text-base lg:text-lg mb-6 leading-relaxed">
+                                        <p className="font-body text-text-muted text-lg mb-6 leading-relaxed">
                                             {service.description}
                                         </p>
 
                                         {/* Features */}
-                                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                                             {service.features.map((feature, i) => (
                                                 <li
                                                     key={i}
-                                                    className="flex items-start gap-3 font-body text-text-main text-sm lg:text-base"
+                                                    className="flex items-start gap-3 font-body text-text-main"
                                                 >
                                                     <svg className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -118,7 +118,7 @@ export default async function ServicesPage() {
 
                                         <Link
                                             href={`/services/${service.slug}`}
-                                            className="inline-flex items-center gap-3 text-primary font-body font-medium hover:text-primary-light transition-colors group"
+                                            className="inline-flex items-center gap-2 text-primary font-body font-medium hover:text-primary-light transition-colors group"
                                         >
                                             Learn More
                                             <svg className="w-5 h-5 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,10 +138,10 @@ export default async function ServicesPage() {
                 <div className="container-luxury">
                     <div className="max-w-3xl mx-auto text-center">
                         <AnimatedSection animation="fadeUp">
-                            <h2 className="font-heading text-white mb-4 lg:mb-5">
+                            <h2 className="font-heading text-white mb-4">
                                 Ready to Get Started?
                             </h2>
-                            <p className="font-body text-white/70 text-lg mb-8 lg:mb-10 leading-relaxed">
+                            <p className="font-body text-white/70 text-lg mb-8">
                                 Contact our team today to discuss how we can help you achieve
                                 your real estate goals in Dubai.
                             </p>
@@ -162,6 +162,7 @@ export default async function ServicesPage() {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 }
+

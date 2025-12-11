@@ -9,17 +9,17 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
     return (
-        <>
+        <div className="pt-24">
             {/* Page Header */}
-            <section className="bg-primary py-12 lg:py-16">
+            <section className="bg-primary py-20">
                 <div className="container-luxury">
                     <AnimatedSection animation="fadeUp">
-                        <span className="inline-flex items-center gap-3 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase mb-4">
+                        <span className="inline-flex items-center gap-2 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase mb-4">
                             <span className="w-8 h-px bg-secondary" />
                             Get in Touch
                         </span>
-                        <h1 className="font-heading text-white mb-4 lg:mb-5">Contact Us</h1>
-                        <p className="font-body text-white/70 text-lg max-w-2xl leading-relaxed">
+                        <h1 className="font-heading text-white mb-4">Contact Us</h1>
+                        <p className="font-body text-white/70 text-lg max-w-2xl">
                             Have a question or ready to start your property journey? Our team
                             is here to help you every step of the way.
                         </p>
@@ -31,12 +31,12 @@ export default function ContactPage() {
             <ContactSection />
 
             {/* Map Section */}
-            <section className="h-[400px] lg:h-[500px] relative">
+            <section className="h-[500px] relative">
                 <div className="absolute inset-0 bg-accent">
                     {/* Placeholder for Google Maps */}
                     <div className="w-full h-full flex items-center justify-center bg-primary/5">
-                        <div className="text-center px-4">
-                            <svg className="w-12 h-12 lg:w-16 lg:h-16 mx-auto text-primary/30 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="text-center">
+                            <svg className="w-16 h-16 mx-auto text-primary/30 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
@@ -51,11 +51,11 @@ export default function ContactPage() {
                 </div>
 
                 {/* Office Card Overlay */}
-                <div className="absolute bottom-6 left-6 lg:bottom-8 lg:left-8 bg-white p-6 lg:p-8 shadow-premium-hover max-w-sm">
-                    <h3 className="font-heading text-lg lg:text-xl text-text-main mb-4">
+                <div className="absolute bottom-8 left-8 bg-white p-8 shadow-xl max-w-sm">
+                    <h3 className="font-heading text-xl text-text-main mb-4">
                         Dubai Head Office
                     </h3>
-                    <div className="space-y-3 font-body text-text-muted text-sm lg:text-base">
+                    <div className="space-y-3 font-body text-text-muted">
                         <p className="flex items-start gap-3">
                             <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -83,7 +83,7 @@ export default function ContactPage() {
             <section className="section-padding bg-white">
                 <div className="container-luxury">
                     <AnimatedSection animation="fadeUp">
-                        <div className="text-center mb-12 lg:mb-16">
+                        <div className="text-center mb-16">
                             <span className="text-sm font-body font-semibold tracking-[0.2em] uppercase text-secondary mb-4 block">
                                 FAQ
                             </span>
@@ -95,7 +95,7 @@ export default function ContactPage() {
 
                     <div className="max-w-3xl mx-auto">
                         <AnimatedSection animation="fadeUp" delay={0.1}>
-                            <div className="space-y-4 lg:space-y-6">
+                            <div className="space-y-6">
                                 {[
                                     {
                                         question: 'What areas of Dubai do you specialize in?',
@@ -120,12 +120,12 @@ export default function ContactPage() {
                                 ].map((faq, index) => (
                                     <details
                                         key={index}
-                                        className="group bg-accent p-5 lg:p-6 cursor-pointer"
+                                        className="group bg-accent p-6 cursor-pointer"
                                     >
-                                        <summary className="flex items-center justify-between font-heading text-base lg:text-lg text-text-main list-none">
+                                        <summary className="flex items-center justify-between font-heading text-lg text-text-main list-none">
                                             {faq.question}
                                             <svg
-                                                className="w-5 h-5 text-primary transition-transform group-open:rotate-180 flex-shrink-0 ml-4"
+                                                className="w-5 h-5 text-primary transition-transform group-open:rotate-180"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
@@ -133,7 +133,7 @@ export default function ContactPage() {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                             </svg>
                                         </summary>
-                                        <p className="mt-4 font-body text-text-muted leading-relaxed text-sm lg:text-base">
+                                        <p className="mt-4 font-body text-text-muted leading-relaxed">
                                             {faq.answer}
                                         </p>
                                     </details>
@@ -143,6 +143,7 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 }
+

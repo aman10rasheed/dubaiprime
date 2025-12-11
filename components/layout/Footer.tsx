@@ -75,24 +75,24 @@ export default function Footer() {
         <footer className="bg-primary text-white">
             {/* Newsletter Section */}
             <div className="border-b border-white/10">
-                <div className="container-luxury py-12 lg:py-16">
+                <div className="container-luxury py-16">
                     <AnimatedSection animation="fadeUp">
                         <div className="max-w-4xl mx-auto text-center">
-                            <h3 className="font-heading text-2xl lg:text-3xl mb-4">
+                            <h3 className="font-heading text-3xl mb-4">
                                 Stay Informed
                             </h3>
-                            <p className="text-white/70 font-body mb-6 lg:mb-8 leading-relaxed">
+                            <p className="text-white/70 font-body mb-8">
                                 Subscribe to receive exclusive property listings, market insights, and investment opportunities.
                             </p>
-                            <form className="flex flex-col sm:flex-row gap-3 lg:gap-4 max-w-xl mx-auto">
+                            <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
-                                    className="flex-1 px-5 lg:px-6 py-3.5 lg:py-4 bg-white/10 border border-white/20 text-white placeholder-white/50 font-body focus:outline-none focus:border-secondary transition-colors"
+                                    className="flex-1 px-6 py-4 bg-white/10 border border-white/20 text-white placeholder-white/50 font-body focus:outline-none focus:border-secondary transition-colors"
                                 />
                                 <motion.button
                                     type="submit"
-                                    className="px-6 lg:px-8 py-3.5 lg:py-4 bg-secondary text-text-main font-body font-medium hover:bg-secondary-light transition-colors"
+                                    className="px-8 py-4 bg-secondary text-text-main font-body font-medium hover:bg-secondary-light transition-colors"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
@@ -105,17 +105,17 @@ export default function Footer() {
             </div>
 
             {/* Main Footer */}
-            <div className="container-luxury py-12 lg:py-16">
+            <div className="container-luxury py-16">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
                     {/* Brand Column */}
-                    <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-4 lg:mb-0">
-                        <Link href="/" className="inline-block mb-5 lg:mb-6">
+                    <div className="col-span-2 md:col-span-4 lg:col-span-1">
+                        <Link href="/" className="inline-block mb-6">
                             <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 bg-white flex items-center justify-center">
                                     <span className="font-heading font-bold text-xl text-primary">DP</span>
                                 </div>
                                 <div>
-                                    <span className="font-heading text-lg lg:text-xl font-semibold tracking-tight text-white">
+                                    <span className="font-heading text-xl font-semibold tracking-tight text-white">
                                         Dubai Prime
                                     </span>
                                     <span className="block text-xs font-body tracking-[0.2em] uppercase text-white/70">
@@ -124,10 +124,10 @@ export default function Footer() {
                                 </div>
                             </div>
                         </Link>
-                        <p className="text-white/70 font-body text-sm leading-relaxed mb-5 lg:mb-6">
+                        <p className="text-white/70 font-body text-sm leading-relaxed mb-6">
                             The intersection of luxury homes and market intelligence. Elevating Dubai living since 2008.
                         </p>
-                        <div className="flex gap-3 lg:gap-4">
+                        <div className="flex gap-4">
                             {socialLinks.map((social) => (
                                 <motion.a
                                     key={social.label}
@@ -146,10 +146,10 @@ export default function Footer() {
 
                     {/* Links Columns */}
                     <div>
-                        <h4 className="font-body font-semibold text-sm tracking-[0.1em] uppercase mb-5 lg:mb-6">
+                        <h4 className="font-body font-semibold text-sm tracking-[0.1em] uppercase mb-6">
                             Properties
                         </h4>
-                        <ul className="space-y-2.5 lg:space-y-3">
+                        <ul className="space-y-3">
                             {footerLinks.properties.map((link) => (
                                 <li key={link.label}>
                                     <Link
@@ -164,10 +164,10 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-body font-semibold text-sm tracking-[0.1em] uppercase mb-5 lg:mb-6">
+                        <h4 className="font-body font-semibold text-sm tracking-[0.1em] uppercase mb-6">
                             Services
                         </h4>
-                        <ul className="space-y-2.5 lg:space-y-3">
+                        <ul className="space-y-3">
                             {footerLinks.services.map((link) => (
                                 <li key={link.label}>
                                     <Link
@@ -182,10 +182,10 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-body font-semibold text-sm tracking-[0.1em] uppercase mb-5 lg:mb-6">
+                        <h4 className="font-body font-semibold text-sm tracking-[0.1em] uppercase mb-6">
                             Company
                         </h4>
-                        <ul className="space-y-2.5 lg:space-y-3">
+                        <ul className="space-y-3">
                             {footerLinks.company.map((link) => (
                                 <li key={link.label}>
                                     <Link
@@ -200,10 +200,10 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-body font-semibold text-sm tracking-[0.1em] uppercase mb-5 lg:mb-6">
+                        <h4 className="font-body font-semibold text-sm tracking-[0.1em] uppercase mb-6">
                             Neighborhoods
                         </h4>
-                        <ul className="space-y-2.5 lg:space-y-3">
+                        <ul className="space-y-3">
                             {footerLinks.neighborhoods.map((link) => (
                                 <li key={link.label}>
                                     <Link
@@ -221,12 +221,12 @@ export default function Footer() {
 
             {/* Bottom Bar */}
             <div className="border-t border-white/10">
-                <div className="container-luxury py-5 lg:py-6">
+                <div className="container-luxury py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-white/50 font-body text-sm">
                             © {new Date().getFullYear()} Dubai Prime Estate. All rights reserved.
                         </p>
-                        <div className="flex gap-4 lg:gap-6">
+                        <div className="flex gap-6">
                             <Link href="/privacy" className="text-white/50 font-body text-sm hover:text-white transition-colors">
                                 Privacy Policy
                             </Link>
@@ -243,3 +243,4 @@ export default function Footer() {
         </footer>
     );
 }
+

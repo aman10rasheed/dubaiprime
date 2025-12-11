@@ -34,15 +34,15 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
                 <div className="max-w-4xl mx-auto">
                     {/* Quote Icon */}
                     <AnimatedSection animation="fadeIn">
-                        <div className="text-center mb-8 lg:mb-10">
-                            <svg className="w-14 h-14 lg:w-16 lg:h-16 mx-auto text-secondary/30" fill="currentColor" viewBox="0 0 24 24">
+                        <div className="text-center mb-8">
+                            <svg className="w-16 h-16 mx-auto text-secondary/30" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                             </svg>
                         </div>
                     </AnimatedSection>
 
                     {/* Testimonial Content */}
-                    <div className="relative min-h-[280px] lg:min-h-[320px]">
+                    <div className="relative min-h-[300px]">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeIndex}
@@ -50,14 +50,14 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.5 }}
-                                className="text-center px-4"
+                                className="text-center"
                             >
                                 {/* Rating */}
-                                <div className="flex justify-center gap-1.5 mb-6 lg:mb-8">
+                                <div className="flex justify-center gap-1 mb-6">
                                     {[...Array(5)].map((_, i) => (
                                         <svg
                                             key={i}
-                                            className={`w-5 h-5 lg:w-6 lg:h-6 ${i < testimonials[activeIndex].rating
+                                            className={`w-6 h-6 ${i < testimonials[activeIndex].rating
                                                 ? 'text-secondary'
                                                 : 'text-white/20'
                                                 }`}
@@ -70,17 +70,17 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
                                 </div>
 
                                 {/* Quote */}
-                                <blockquote className="font-heading text-xl sm:text-2xl lg:text-3xl text-white leading-relaxed mb-8 lg:mb-10">
+                                <blockquote className="font-heading text-2xl md:text-3xl text-white leading-relaxed mb-8">
                                     &ldquo;{testimonials[activeIndex].content}&rdquo;
                                 </blockquote>
 
                                 {/* Client Info */}
                                 <div>
-                                    <p className="font-heading text-lg lg:text-xl text-secondary mb-1">
+                                    <p className="font-heading text-xl text-secondary">
                                         {testimonials[activeIndex].clientName}
                                     </p>
                                     {testimonials[activeIndex].clientTitle && (
-                                        <p className="font-body text-white/60 text-sm lg:text-base">
+                                        <p className="font-body text-white/60 mt-1">
                                             {testimonials[activeIndex].clientTitle}
                                         </p>
                                     )}
@@ -90,10 +90,10 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
                     </div>
 
                     {/* Navigation */}
-                    <div className="flex items-center justify-center gap-4 lg:gap-6 mt-10 lg:mt-12">
+                    <div className="flex items-center justify-center gap-6 mt-12">
                         <motion.button
                             onClick={prevTestimonial}
-                            className="w-11 h-11 lg:w-12 lg:h-12 border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"
+                            className="w-12 h-12 border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -103,14 +103,14 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
                         </motion.button>
 
                         {/* Dots */}
-                        <div className="flex gap-2.5">
+                        <div className="flex gap-2">
                             {testimonials.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setActiveIndex(index)}
-                                    className={`h-2.5 transition-all duration-300 ${index === activeIndex
-                                        ? 'bg-secondary w-7'
-                                        : 'bg-white/30 hover:bg-white/50 w-2.5'
+                                    className={`w-2 h-2 transition-all duration-300 ${index === activeIndex
+                                        ? 'bg-secondary w-6'
+                                        : 'bg-white/30 hover:bg-white/50'
                                         }`}
                                 />
                             ))}
@@ -118,7 +118,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
 
                         <motion.button
                             onClick={nextTestimonial}
-                            className="w-11 h-11 lg:w-12 lg:h-12 border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"
+                            className="w-12 h-12 border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -132,3 +132,4 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
         </section>
     );
 }
+

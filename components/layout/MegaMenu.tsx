@@ -19,45 +19,31 @@ interface MegaMenuProps {
 }
 
 export default function MegaMenu({ isOpen, sections }: MegaMenuProps) {
-    const columnCount = sections.length;
-
     return (
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    className="absolute top-full left-0 pt-2"
-                    initial={{ opacity: 0, y: -10 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
                 >
-                    {/* Arrow */}
-                    <div className="absolute top-2 left-8 w-3 h-3 bg-white rotate-45 border-l border-t border-gray-100" />
-
-                    <div className="relative bg-white shadow-2xl border border-gray-100 rounded-sm overflow-hidden">
-                        {/* Main Content */}
-                        <div
-                            className={`grid gap-0 ${columnCount === 1 ? 'grid-cols-1 min-w-[280px]' :
-                                    columnCount === 2 ? 'grid-cols-2 min-w-[480px]' :
-                                        'grid-cols-3 min-w-[640px]'
-                                }`}
-                        >
-                            {sections.map((section, sectionIndex) => (
-                                <div
-                                    key={section.title}
-                                    className={`p-6 ${sectionIndex > 0 ? 'border-l border-gray-100' : ''}`}
-                                >
-                                    <h3 className="text-xs font-body font-bold tracking-[0.15em] uppercase text-primary mb-5">
+                    <div className="bg-white shadow-2xl border border-accent min-w-[500px]">
+                        <div className="grid grid-cols-3 gap-8 p-8">
+                            {sections.map((section) => (
+                                <div key={section.title}>
+                                    <h3 className="text-xs font-body font-semibold tracking-[0.15em] uppercase text-text-muted mb-4">
                                         {section.title}
                                     </h3>
-                                    <ul className="space-y-1">
+                                    <ul className="space-y-3">
                                         {section.links.map((link) => (
                                             <li key={link.label}>
                                                 <Link
                                                     href={link.href}
-                                                    className="group flex items-center py-2 text-sm font-body text-text-main hover:text-primary transition-colors"
+                                                    className="group flex items-center text-sm font-body text-text-main hover:text-primary transition-colors"
                                                 >
-                                                    <span className="w-0 h-px bg-secondary mr-0 group-hover:w-3 group-hover:mr-3 transition-all duration-200" />
+                                                    <span className="w-0 h-px bg-secondary mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300" />
                                                     {link.label}
                                                 </Link>
                                             </li>
@@ -67,19 +53,24 @@ export default function MegaMenu({ isOpen, sections }: MegaMenuProps) {
                             ))}
                         </div>
 
-                        {/* Footer */}
-                        <div className="bg-accent/50 px-6 py-4 border-t border-gray-100">
+                        {/* Featured Property Teaser */}
+                        <div className="bg-accent p-6 border-t border-accent">
                             <div className="flex items-center justify-between">
-                                <p className="text-xs font-body text-text-muted">
-                                    Discover our exclusive collection
-                                </p>
+                                <div>
+                                    <span className="text-xs font-body font-semibold tracking-[0.15em] uppercase text-secondary">
+                                        Featured
+                                    </span>
+                                    <p className="text-sm font-body text-text-main mt-1">
+                                        Discover our exclusive collection of luxury properties
+                                    </p>
+                                </div>
                                 <Link
                                     href="/properties"
-                                    className="inline-flex items-center gap-2 text-xs font-body font-semibold text-primary hover:text-primary-light transition-colors"
+                                    className="text-sm font-body font-medium text-primary hover:text-primary-light flex items-center gap-2 transition-colors"
                                 >
-                                    View All Properties
-                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                    View All
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </Link>
                             </div>
@@ -90,3 +81,4 @@ export default function MegaMenu({ isOpen, sections }: MegaMenuProps) {
         </AnimatePresence>
     );
 }
+

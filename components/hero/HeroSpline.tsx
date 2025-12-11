@@ -15,7 +15,7 @@ export default function HeroSpline() {
     const [isSplineLoaded, setIsSplineLoaded] = useState(false);
 
     return (
-        <section className="relative h-screen min-h-[750px] lg:min-h-[850px] overflow-hidden">
+        <section className="relative h-screen min-h-[800px] overflow-hidden">
             {/* Spline 3D Background */}
             <div className="absolute inset-0 z-0">
                 <Suspense fallback={null}>
@@ -45,7 +45,7 @@ export default function HeroSpline() {
             </div>
 
             {/* Content */}
-            <div className="relative z-20 h-full flex flex-col justify-center container-luxury pt-20 lg:pt-24">
+            <div className="relative z-20 h-full flex flex-col justify-center container-luxury">
                 <div className="max-w-4xl">
                     {/* Eyebrow */}
                     <motion.div
@@ -53,7 +53,7 @@ export default function HeroSpline() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        <span className="inline-flex items-center gap-3 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase">
+                        <span className="inline-flex items-center gap-2 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase">
                             <span className="w-8 h-px bg-secondary" />
                             Dubai&apos;s Premier Real Estate
                         </span>
@@ -61,7 +61,7 @@ export default function HeroSpline() {
 
                     {/* Headline */}
                     <motion.h1
-                        className="font-heading text-white mt-5 lg:mt-6 mb-5 lg:mb-6"
+                        className="font-heading text-white mt-6 mb-6"
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
@@ -73,7 +73,7 @@ export default function HeroSpline() {
 
                     {/* Subheadline */}
                     <motion.p
-                        className="font-body text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl leading-relaxed"
+                        className="font-body text-xl md:text-2xl text-white/80 max-w-2xl leading-relaxed"
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
@@ -84,7 +84,7 @@ export default function HeroSpline() {
 
                     {/* Stats Row */}
                     <motion.div
-                        className="flex flex-wrap gap-6 sm:gap-8 lg:gap-12 mt-8 lg:mt-10"
+                        className="flex gap-12 mt-10"
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.8 }}
@@ -95,10 +95,10 @@ export default function HeroSpline() {
                             { value: '15+', label: 'Years of Excellence' },
                         ].map((stat, index) => (
                             <div key={index} className="text-white">
-                                <span className="block font-heading text-2xl sm:text-3xl lg:text-4xl text-secondary">
+                                <span className="block font-heading text-3xl md:text-4xl text-secondary">
                                     {stat.value}
                                 </span>
-                                <span className="text-xs sm:text-sm font-body text-white/60 tracking-wide">
+                                <span className="text-sm font-body text-white/60 tracking-wide">
                                     {stat.label}
                                 </span>
                             </div>
@@ -108,7 +108,7 @@ export default function HeroSpline() {
 
                 {/* Search Bar */}
                 <motion.div
-                    className="mt-10 lg:mt-12 max-w-4xl"
+                    className="mt-12 max-w-4xl"
                     initial={{ opacity: 0, y: 60 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 1 }}
@@ -119,7 +119,7 @@ export default function HeroSpline() {
 
             {/* Scroll Indicator */}
             <motion.div
-                className="absolute bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 z-20"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5 }}
@@ -138,3 +138,4 @@ export default function HeroSpline() {
         </section>
     );
 }
+

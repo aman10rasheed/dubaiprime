@@ -12,17 +12,17 @@ export default async function TeamPage() {
     const teamMembers = await getTeamMembers();
 
     return (
-        <>
+        <div className="pt-24">
             {/* Page Header */}
-            <section className="bg-primary py-12 lg:py-16">
+            <section className="bg-primary py-20">
                 <div className="container-luxury">
                     <AnimatedSection animation="fadeUp">
-                        <span className="inline-flex items-center gap-3 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase mb-4">
+                        <span className="inline-flex items-center gap-2 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase mb-4">
                             <span className="w-8 h-px bg-secondary" />
                             Our Leadership
                         </span>
-                        <h1 className="font-heading text-white mb-4 lg:mb-5">Meet Our Team</h1>
-                        <p className="font-body text-white/70 text-lg max-w-2xl leading-relaxed">
+                        <h1 className="font-heading text-white mb-4">Meet Our Team</h1>
+                        <p className="font-body text-white/70 text-lg max-w-2xl">
                             The visionaries and experts driving Dubai Prime Estate&apos;s success
                             in the luxury real estate market.
                         </p>
@@ -33,7 +33,7 @@ export default async function TeamPage() {
             {/* About Section */}
             <section className="section-padding bg-white">
                 <div className="container-luxury">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <AnimatedSection animation="fadeUp">
                             <span className="text-sm font-body font-semibold tracking-[0.2em] uppercase text-secondary mb-4 block">
                                 About Us
@@ -41,7 +41,7 @@ export default async function TeamPage() {
                             <h2 className="font-heading text-text-main mb-6">
                                 A Legacy of Excellence
                             </h2>
-                            <div className="space-y-4 lg:space-y-5 font-body text-text-muted leading-relaxed">
+                            <div className="space-y-4 font-body text-text-muted leading-relaxed">
                                 <p>
                                     Founded in 2008, Dubai Prime Estate has grown to become one of
                                     the most respected names in Dubai&apos;s luxury real estate market.
@@ -65,8 +65,8 @@ export default async function TeamPage() {
                         </AnimatedSection>
 
                         <AnimatedSection animation="slideLeft" delay={0.2}>
-                            <div className="grid grid-cols-2 gap-4 lg:gap-6">
-                                <div className="space-y-4 lg:space-y-6">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-4">
                                     <div className="relative aspect-[3/4]">
                                         <Image
                                             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=800&fit=crop"
@@ -75,16 +75,16 @@ export default async function TeamPage() {
                                             className="object-cover"
                                         />
                                     </div>
-                                    <div className="bg-primary p-5 lg:p-6 text-center">
-                                        <span className="block font-heading text-3xl lg:text-4xl text-white">15+</span>
+                                    <div className="bg-primary p-6 text-center">
+                                        <span className="block font-heading text-4xl text-white">15+</span>
                                         <span className="text-sm font-body text-white/70 uppercase tracking-wide">
                                             Years of Excellence
                                         </span>
                                     </div>
                                 </div>
-                                <div className="space-y-4 lg:space-y-6 pt-8 lg:pt-12">
-                                    <div className="bg-secondary p-5 lg:p-6 text-center">
-                                        <span className="block font-heading text-3xl lg:text-4xl text-text-main">AED 12B+</span>
+                                <div className="space-y-4 pt-8">
+                                    <div className="bg-secondary p-6 text-center">
+                                        <span className="block font-heading text-4xl text-text-main">AED 12B+</span>
                                         <span className="text-sm font-body text-text-main/70 uppercase tracking-wide">
                                             Portfolio Value
                                         </span>
@@ -108,7 +108,7 @@ export default async function TeamPage() {
             <section className="section-padding bg-accent">
                 <div className="container-luxury">
                     <AnimatedSection animation="fadeUp">
-                        <div className="text-center mb-12 lg:mb-16">
+                        <div className="text-center mb-16">
                             <span className="text-sm font-body font-semibold tracking-[0.2em] uppercase text-secondary mb-4 block">
                                 Leadership
                             </span>
@@ -118,10 +118,10 @@ export default async function TeamPage() {
                         </div>
                     </AnimatedSection>
 
-                    <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {teamMembers.map((member) => (
                             <StaggerItem key={member.id}>
-                                <article className="group bg-white overflow-hidden shadow-premium hover:shadow-premium-hover transition-shadow">
+                                <article className="group bg-white overflow-hidden">
                                     {/* Image */}
                                     <div className="relative aspect-square overflow-hidden">
                                         <Image
@@ -158,17 +158,17 @@ export default async function TeamPage() {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-5 lg:p-6 text-center">
-                                        <h3 className="font-heading text-lg lg:text-xl text-text-main mb-1.5">
+                                    <div className="p-6 text-center">
+                                        <h3 className="font-heading text-xl text-text-main mb-1">
                                             {member.name}
                                         </h3>
-                                        <p className="font-body text-sm text-secondary mb-2 font-medium">
+                                        <p className="font-body text-sm text-secondary mb-2">
                                             {member.title}
                                         </p>
-                                        <p className="font-body text-xs text-text-muted uppercase tracking-wider mb-3 lg:mb-4">
+                                        <p className="font-body text-xs text-text-muted uppercase tracking-wider mb-4">
                                             {member.department}
                                         </p>
-                                        <p className="font-body text-sm text-text-muted line-clamp-3 leading-relaxed">
+                                        <p className="font-body text-sm text-text-muted line-clamp-3">
                                             {member.shortBio}
                                         </p>
                                     </div>
@@ -183,7 +183,7 @@ export default async function TeamPage() {
             <section className="section-padding bg-white">
                 <div className="container-luxury">
                     <AnimatedSection animation="fadeUp">
-                        <div className="text-center mb-12 lg:mb-16">
+                        <div className="text-center mb-16">
                             <span className="text-sm font-body font-semibold tracking-[0.2em] uppercase text-secondary mb-4 block">
                                 Our Values
                             </span>
@@ -193,7 +193,7 @@ export default async function TeamPage() {
                         </div>
                     </AnimatedSection>
 
-                    <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             {
                                 title: 'Integrity',
@@ -224,14 +224,14 @@ export default async function TeamPage() {
                             },
                         ].map((value, index) => (
                             <StaggerItem key={index}>
-                                <div className="text-center p-8 lg:p-10 bg-accent h-full">
-                                    <div className="w-14 h-14 lg:w-16 lg:h-16 bg-primary/5 flex items-center justify-center mx-auto mb-5 lg:mb-6 text-primary">
+                                <div className="text-center p-8 bg-accent h-full">
+                                    <div className="w-16 h-16 bg-primary/5 flex items-center justify-center mx-auto mb-6 text-primary">
                                         {value.icon}
                                     </div>
-                                    <h3 className="font-heading text-xl text-text-main mb-3 lg:mb-4">
+                                    <h3 className="font-heading text-xl text-text-main mb-4">
                                         {value.title}
                                     </h3>
-                                    <p className="font-body text-text-muted leading-relaxed">
+                                    <p className="font-body text-text-muted">
                                         {value.description}
                                     </p>
                                 </div>
@@ -240,6 +240,7 @@ export default async function TeamPage() {
                     </StaggerContainer>
                 </div>
             </section>
-        </>
+        </div>
     );
 }
+

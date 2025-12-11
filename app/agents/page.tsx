@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/ui/AnimatedSection';
+import SectionHeader from '@/components/ui/SectionHeader';
 import { getAgents } from '@/data/mockData';
 
 export const metadata: Metadata = {
@@ -13,17 +14,17 @@ export default async function AgentsPage() {
     const agents = await getAgents();
 
     return (
-        <>
+        <div className="pt-24">
             {/* Page Header */}
-            <section className="bg-primary py-12 lg:py-16">
+            <section className="bg-primary py-20">
                 <div className="container-luxury">
                     <AnimatedSection animation="fadeUp">
-                        <span className="inline-flex items-center gap-3 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase mb-4">
+                        <span className="inline-flex items-center gap-2 text-secondary font-body text-sm font-medium tracking-[0.2em] uppercase mb-4">
                             <span className="w-8 h-px bg-secondary" />
                             Our Experts
                         </span>
-                        <h1 className="font-heading text-white mb-4 lg:mb-5">Meet Our Agents</h1>
-                        <p className="font-body text-white/70 text-lg max-w-2xl leading-relaxed">
+                        <h1 className="font-heading text-white mb-4">Meet Our Agents</h1>
+                        <p className="font-body text-white/70 text-lg max-w-2xl">
                             Our team of experienced professionals is dedicated to helping you
                             find the perfect property in Dubai.
                         </p>
@@ -34,11 +35,11 @@ export default async function AgentsPage() {
             {/* Agents Grid */}
             <section className="section-padding bg-accent">
                 <div className="container-luxury">
-                    <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+                    <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {agents.map((agent) => (
                             <StaggerItem key={agent.id}>
                                 <Link href={`/agents/${agent.slug}`}>
-                                    <article className="group bg-white overflow-hidden transition-all duration-300 hover:shadow-premium-hover shadow-premium">
+                                    <article className="group bg-white overflow-hidden transition-shadow hover:shadow-xl">
                                         {/* Image */}
                                         <div className="relative aspect-[4/5] overflow-hidden">
                                             <Image
@@ -48,23 +49,23 @@ export default async function AgentsPage() {
                                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                                             />
                                             {agent.isFeatured && (
-                                                <span className="absolute top-4 left-4 px-3 py-1.5 bg-secondary text-text-main text-xs font-body font-semibold">
+                                                <span className="absolute top-4 left-4 px-3 py-1 bg-secondary text-text-main text-xs font-body font-semibold">
                                                     Featured Agent
                                                 </span>
                                             )}
                                         </div>
 
                                         {/* Content */}
-                                        <div className="p-5 lg:p-6">
-                                            <h3 className="font-heading text-lg lg:text-xl text-text-main mb-1.5 group-hover:text-primary transition-colors">
+                                        <div className="p-6">
+                                            <h3 className="font-heading text-xl text-text-main mb-1 group-hover:text-primary transition-colors">
                                                 {agent.name}
                                             </h3>
-                                            <p className="font-body text-sm text-secondary mb-3 lg:mb-4 font-medium">
+                                            <p className="font-body text-sm text-secondary mb-4">
                                                 {agent.title}
                                             </p>
 
                                             {/* Languages */}
-                                            <div className="flex flex-wrap gap-1.5 mb-4">
+                                            <div className="flex flex-wrap gap-2 mb-4">
                                                 {agent.languages.map((lang) => (
                                                     <span
                                                         key={lang}
@@ -76,7 +77,7 @@ export default async function AgentsPage() {
                                             </div>
 
                                             {/* Stats */}
-                                            <div className="flex items-center justify-between pt-4 lg:pt-5 border-t border-accent">
+                                            <div className="flex items-center justify-between pt-4 border-t border-accent">
                                                 <div>
                                                     <span className="block font-heading text-lg text-primary">
                                                         {agent.propertiesSold}
@@ -116,17 +117,17 @@ export default async function AgentsPage() {
                 <div className="container-luxury">
                     <div className="max-w-3xl mx-auto text-center">
                         <AnimatedSection animation="fadeUp">
-                            <h2 className="font-heading text-text-main mb-4 lg:mb-5">
+                            <h2 className="font-heading text-text-main mb-4">
                                 Join Our Team
                             </h2>
-                            <p className="font-body text-text-muted text-lg mb-8 lg:mb-10 leading-relaxed">
+                            <p className="font-body text-text-muted text-lg mb-8">
                                 Are you a passionate real estate professional looking to work with
                                 Dubai&apos;s premier luxury agency? We&apos;re always looking for talented
                                 individuals to join our growing team.
                             </p>
                             <Link
                                 href="/careers"
-                                className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-body font-medium hover:bg-primary-light transition-colors"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-body font-medium hover:bg-primary-light transition-colors"
                             >
                                 View Open Positions
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,6 +138,7 @@ export default async function AgentsPage() {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 }
+

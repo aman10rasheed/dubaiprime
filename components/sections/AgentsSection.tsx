@@ -27,13 +27,12 @@ export default function AgentsSection({ agents }: AgentsSectionProps) {
     return (
         <section className="section-padding bg-accent">
             <div className="container-luxury">
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8 mb-12 lg:mb-16">
+                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
                     <SectionHeader
                         label="Meet Our Experts"
                         title="Featured Agents"
                         subtitle="Work with the region's most accomplished real estate professionals."
                         align="left"
-                        className="mb-0"
                     />
 
                     <AnimatedSection animation="fadeUp" delay={0.2}>
@@ -43,11 +42,11 @@ export default function AgentsSection({ agents }: AgentsSectionProps) {
                     </AnimatedSection>
                 </div>
 
-                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {agents.map((agent) => (
                         <StaggerItem key={agent.id}>
                             <motion.article
-                                className="group bg-white overflow-hidden cursor-pointer shadow-premium hover:shadow-premium-hover"
+                                className="group bg-white overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl"
                                 whileHover={{ y: -8 }}
                                 transition={{ duration: 0.3 }}
                                 onClick={() => handleCardClick(agent.slug)}
@@ -63,11 +62,11 @@ export default function AgentsSection({ agents }: AgentsSectionProps) {
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
                                     {/* Social Links on Hover */}
-                                    <div className="absolute bottom-4 left-4 right-4 flex justify-center gap-3 lg:gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                                    <div className="absolute bottom-4 left-4 right-4 flex justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
                                         {agent.socialLinks?.linkedin && (
                                             <motion.button
                                                 onClick={(e) => handleSocialClick(e, agent.socialLinks!.linkedin!)}
-                                                className="w-10 h-10 lg:w-12 lg:h-12 bg-white flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-colors"
+                                                className="w-12 h-12 bg-white flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-colors"
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.95 }}
                                             >
@@ -79,7 +78,7 @@ export default function AgentsSection({ agents }: AgentsSectionProps) {
                                         {agent.socialLinks?.instagram && (
                                             <motion.button
                                                 onClick={(e) => handleSocialClick(e, agent.socialLinks!.instagram!)}
-                                                className="w-10 h-10 lg:w-12 lg:h-12 bg-white flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-colors"
+                                                className="w-12 h-12 bg-white flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-colors"
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.95 }}
                                             >
@@ -90,7 +89,7 @@ export default function AgentsSection({ agents }: AgentsSectionProps) {
                                         )}
                                         <motion.button
                                             onClick={(e) => handleSocialClick(e, `mailto:${agent.email}`)}
-                                            className="w-10 h-10 lg:w-12 lg:h-12 bg-white flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-colors"
+                                            className="w-12 h-12 bg-white flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-colors"
                                             whileHover={{ scale: 1.1 }}
                                             whileTap={{ scale: 0.95 }}
                                         >
@@ -102,21 +101,21 @@ export default function AgentsSection({ agents }: AgentsSectionProps) {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6 lg:p-8">
-                                    <h3 className="font-heading text-xl text-text-main mb-1.5 group-hover:text-primary transition-colors">
+                                <div className="p-8">
+                                    <h3 className="font-heading text-xl text-text-main mb-1 group-hover:text-primary transition-colors">
                                         {agent.name}
                                     </h3>
-                                    <p className="font-body text-sm text-secondary mb-3 lg:mb-4 font-medium">
+                                    <p className="font-body text-sm text-secondary mb-4 font-medium">
                                         {agent.title}
                                     </p>
-                                    <p className="font-body text-text-muted text-sm mb-5 lg:mb-6 line-clamp-2 leading-relaxed">
+                                    <p className="font-body text-text-muted text-sm mb-6 line-clamp-2 leading-relaxed">
                                         {agent.shortBio}
                                     </p>
 
                                     {/* Stats */}
-                                    <div className="flex items-center justify-between pt-5 lg:pt-6 border-t border-accent">
+                                    <div className="flex items-center justify-between pt-6 border-t border-accent">
                                         <div className="text-center">
-                                            <span className="block font-heading text-xl lg:text-2xl text-primary">
+                                            <span className="block font-heading text-2xl text-primary">
                                                 {agent.propertiesSold}
                                             </span>
                                             <span className="text-xs font-body text-text-muted uppercase tracking-wider">
@@ -124,7 +123,7 @@ export default function AgentsSection({ agents }: AgentsSectionProps) {
                                             </span>
                                         </div>
                                         <div className="text-center">
-                                            <span className="block font-heading text-xl lg:text-2xl text-primary">
+                                            <span className="block font-heading text-2xl text-primary">
                                                 {agent.experience}
                                             </span>
                                             <span className="text-xs font-body text-text-muted uppercase tracking-wider">
@@ -135,7 +134,7 @@ export default function AgentsSection({ agents }: AgentsSectionProps) {
                                             <svg className="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                             </svg>
-                                            <span className="font-heading text-xl lg:text-2xl text-primary">{agent.rating}</span>
+                                            <span className="font-heading text-2xl text-primary">{agent.rating}</span>
                                         </div>
                                     </div>
                                 </div>

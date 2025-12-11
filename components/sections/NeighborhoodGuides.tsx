@@ -37,17 +37,16 @@ export default function NeighborhoodGuides({ neighborhoods }: NeighborhoodGuides
                 {/* Carousel */}
                 <div
                     ref={scrollRef}
-                    className="flex gap-6 lg:gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 lg:-mx-8 lg:px-8"
+                    className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide -mx-4 px-4"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {neighborhoods.map((neighborhood, index) => (
                         <motion.article
                             key={neighborhood.id}
-                            className="flex-shrink-0 w-[320px] sm:w-[380px] md:w-[450px] snap-center group"
+                            className="flex-shrink-0 w-[350px] md:w-[450px] snap-center group"
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
                             onViewportEnter={() => setActiveIndex(index)}
                         >
                             <Link href={`/neighborhoods/${neighborhood.slug}`}>
@@ -61,18 +60,18 @@ export default function NeighborhoodGuides({ neighborhoods }: NeighborhoodGuides
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
                                     {/* Content */}
-                                    <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                                    <div className="absolute bottom-0 left-0 right-0 p-8">
                                         <h3 className="font-heading text-2xl md:text-3xl text-white mb-3">
                                             {neighborhood.name}
                                         </h3>
-                                        <p className="font-body text-white/70 mb-5 lg:mb-6 line-clamp-2 text-sm lg:text-base">
+                                        <p className="font-body text-white/70 mb-6 line-clamp-2">
                                             {neighborhood.shortDescription}
                                         </p>
 
                                         {/* Stats */}
-                                        <div className="flex items-center gap-4 lg:gap-6 mb-5 lg:mb-6">
+                                        <div className="flex items-center gap-6 mb-6">
                                             <div>
-                                                <span className="block font-heading text-lg lg:text-xl text-secondary">
+                                                <span className="block font-heading text-xl text-secondary">
                                                     AED {neighborhood.averagePrice.toLocaleString()}
                                                 </span>
                                                 <span className="text-xs font-body text-white/50 uppercase tracking-wide">
@@ -81,7 +80,7 @@ export default function NeighborhoodGuides({ neighborhoods }: NeighborhoodGuides
                                             </div>
                                             <div className="w-px h-10 bg-white/20" />
                                             <div>
-                                                <span className="block font-heading text-lg lg:text-xl text-secondary">
+                                                <span className="block font-heading text-xl text-secondary">
                                                     +{neighborhood.priceGrowth}%
                                                 </span>
                                                 <span className="text-xs font-body text-white/50 uppercase tracking-wide">
@@ -95,7 +94,7 @@ export default function NeighborhoodGuides({ neighborhoods }: NeighborhoodGuides
                                             {neighborhood.highlights.slice(0, 3).map((highlight, i) => (
                                                 <span
                                                     key={i}
-                                                    className="px-3 py-1.5 bg-white/10 text-white text-xs font-body"
+                                                    className="px-3 py-1 bg-white/10 text-white text-xs font-body"
                                                 >
                                                     {highlight}
                                                 </span>
@@ -123,14 +122,14 @@ export default function NeighborhoodGuides({ neighborhoods }: NeighborhoodGuides
 
                 {/* Navigation Dots */}
                 <AnimatedSection animation="fadeIn" delay={0.3}>
-                    <div className="flex justify-center gap-3 mt-6 lg:mt-8">
+                    <div className="flex justify-center gap-3 mt-8">
                         {neighborhoods.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => scrollTo(index)}
-                                className={`h-3 transition-all duration-300 ${index === activeIndex
+                                className={`w-3 h-3 transition-all duration-300 ${index === activeIndex
                                     ? 'bg-secondary w-8'
-                                    : 'bg-white/30 hover:bg-white/50 w-3'
+                                    : 'bg-white/30 hover:bg-white/50'
                                     }`}
                             />
                         ))}
@@ -140,3 +139,4 @@ export default function NeighborhoodGuides({ neighborhoods }: NeighborhoodGuides
         </section>
     );
 }
+
