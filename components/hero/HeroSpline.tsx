@@ -1,47 +1,99 @@
 'use client';
 
-import { Suspense, useState } from 'react';
-import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import SearchBar from './SearchBar';
 
-// Dynamically import Spline to avoid SSR issues
-const Spline = dynamic(() => import('@splinetool/react-spline'), {
-    ssr: false,
-    loading: () => null,
-});
-
 export default function HeroSpline() {
-    const [isSplineLoaded, setIsSplineLoaded] = useState(false);
-
     return (
         <section className="relative h-screen min-h-[800px] overflow-hidden">
-            {/* Spline 3D Background */}
+            {/* Animated Background */}
             <div className="absolute inset-0 z-0">
-                <Suspense fallback={null}>
-                    <Spline
-                        scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
-                        onLoad={() => setIsSplineLoaded(true)}
-                    />
-                </Suspense>
-
-                {/* Fallback gradient background */}
+                {/* Base gradient */}
                 <div
-                    className={`absolute inset-0 transition-opacity duration-1000 ${isSplineLoaded ? 'opacity-0' : 'opacity-100'
-                        }`}
+                    className="absolute inset-0"
                     style={{
-                        background: 'linear-gradient(135deg, #064E3B 0%, #053f30 50%, #022c22 100%)',
+                        background: 'linear-gradient(135deg, #064E3B 0%, #053f30 40%, #022c22 100%)',
+                    }}
+                />
+
+                {/* Animated gradient orbs */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <motion.div
+                        className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] rounded-full opacity-30"
+                        style={{
+                            background: 'radial-gradient(circle, #D4A373 0%, transparent 70%)',
+                        }}
+                        animate={{
+                            scale: [1, 1.2, 1],
+                            x: [0, 50, 0],
+                            y: [0, 30, 0],
+                        }}
+                        transition={{
+                            duration: 15,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                        }}
+                    />
+                    <motion.div
+                        className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full opacity-20"
+                        style={{
+                            background: 'radial-gradient(circle, #D4A373 0%, transparent 70%)',
+                        }}
+                        animate={{
+                            scale: [1.2, 1, 1.2],
+                            x: [0, -30, 0],
+                            y: [0, -50, 0],
+                        }}
+                        transition={{
+                            duration: 12,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                        }}
+                    />
+                    <motion.div
+                        className="absolute top-1/3 left-1/3 w-[400px] h-[400px] rounded-full opacity-10"
+                        style={{
+                            background: 'radial-gradient(circle, #ffffff 0%, transparent 70%)',
+                        }}
+                        animate={{
+                            scale: [1, 1.3, 1],
+                        }}
+                        transition={{
+                            duration: 10,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                        }}
+                    />
+                </div>
+
+                {/* Geometric pattern overlay */}
+                <div
+                    className="absolute inset-0 opacity-[0.03]"
+                    style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
                     }}
                 />
             </div>
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary/80 z-10" />
+            {/* Overlay gradient for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-primary/50 z-10" />
 
             {/* Decorative Elements */}
             <div className="absolute inset-0 z-10 pointer-events-none">
                 <div className="absolute top-20 left-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-40 right-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+
+                {/* Floating lines */}
+                <motion.div
+                    className="absolute top-1/4 right-1/4 w-px h-32 bg-gradient-to-b from-transparent via-secondary/30 to-transparent"
+                    animate={{ y: [0, 20, 0], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <motion.div
+                    className="absolute top-1/3 right-1/3 w-px h-24 bg-gradient-to-b from-transparent via-white/20 to-transparent"
+                    animate={{ y: [0, -15, 0], opacity: [0.2, 0.5, 0.2] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                />
             </div>
 
             {/* Content */}
@@ -84,7 +136,7 @@ export default function HeroSpline() {
 
                     {/* Stats Row */}
                     <motion.div
-                        className="flex gap-12 mt-10"
+                        className="flex flex-wrap gap-8 md:gap-12 mt-10"
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.8 }}
@@ -138,4 +190,3 @@ export default function HeroSpline() {
         </section>
     );
 }
-
